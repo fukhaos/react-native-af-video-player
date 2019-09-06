@@ -305,20 +305,21 @@ class Video extends Component {
 
   renderError() {
     const { fullScreen } = this.state
+    const { retryText, retryColor } = this.props
     const inline = {
       height: this.animInline,
       alignSelf: 'stretch'
     }
-    const textStyle = { color: 'white', padding: 10 }
+    const textStyle = { color: retryColor, padding: 10 }
     return (
       <Animated.View
         style={[styles.background, fullScreen ? styles.fullScreen : inline]}
       >
-        <Text style={textStyle}>Retry</Text>
+        <Text style={textStyle}>{retryText}</Text>
         <Icons
           name="replay"
           size={60}
-          color={this.props.theme}
+          color={retryColor}
           onPress={() => this.setState({ renderError: false })}
         />
       </Animated.View>
@@ -471,7 +472,9 @@ Video.propTypes = {
   logo: PropTypes.string,
   title: PropTypes.string,
   theme: PropTypes.object,
-  resizeMode: PropTypes.string
+  resizeMode: PropTypes.string,
+  retryText: PropTypes.string,
+  retryColor: PropTypes.string
 }
 
 Video.defaultProps = {
@@ -500,7 +503,9 @@ Video.defaultProps = {
   logo: undefined,
   title: '',
   theme: defaultTheme,
-  resizeMode: 'contain'
+  resizeMode: 'contain',
+  retryText: 'Retry!',
+  retryColor: 'white'
 }
 
 export default Video
