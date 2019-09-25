@@ -80,6 +80,10 @@ class Video extends Component {
   componentWillUnmount() {
     Dimensions.removeEventListener('change', this.onRotated)
     BackHandler.removeEventListener('hardwareBackPress', this.BackHandler)
+    
+    if(this.props.lockPortraitOnFsExit) {
+      Orientation.lockToPortrait()
+    }
   }
 
   onLoadStart() {

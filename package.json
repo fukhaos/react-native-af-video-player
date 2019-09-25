@@ -1,6 +1,6 @@
 {
   "name": "react-native-af-video-player",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "dependencies": {
     "react-native-keep-awake": "^2.0.6",
     "react-native-linear-gradient": "^2.3.0",
@@ -34,6 +34,10 @@
     {
       "name": "abbasfreestyle",
       "email": "abbasfreestyle@gmail.com"
+    },
+    {
+      "name": "MassakiMsk",
+      "email": "alisonmassaki@gmail.com"
     }
   ],
   "license": "MIT",
