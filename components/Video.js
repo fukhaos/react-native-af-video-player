@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {
-  View,
   Text,
   StyleSheet,
   StatusBar,
@@ -408,9 +407,6 @@ class Video extends Component {
           // onBuffer={() => this.onBuffer()} // Callback when remote video is buffering
           onTimedMetadata={e => onTimedMetadata(e)} // Callback when the stream receive some metadata
         />
-        {this.controls && !this.controls.state.hideControls && (
-          <View style={{position: "absolute", top: 0, bottom: 0, left: 0, right: 0, backgroundColor: backgroundControlColor}} />
-        )}
         <Controls
           ref={(ref) => { this.controls = ref }}
           toggleMute={() => this.toggleMute()}
@@ -431,6 +427,7 @@ class Video extends Component {
           onMorePress={() => onMorePress()}
           theme={setTheme}
           inlineOnly={inlineOnly}
+          backgroundControlColor={backgroundControlColor}
         />
       </Animated.View>
     )

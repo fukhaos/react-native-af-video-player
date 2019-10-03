@@ -127,14 +127,15 @@ class Controls extends Component {
       currentTime,
       duration,
       theme,
-      inlineOnly
+      inlineOnly,
+      backgroundControlColor
     } = this.props
 
     const { center, ...controlBar } = theme
 
     return (
       <Touchable onPress={() => this.hideControls()}>
-        <Animated.View style={[styles.container, { opacity: this.animControls }]}>
+        <Animated.View style={[styles.container, { backgroundColor: backgroundControlColor }]}>
           <TopBar
             title={title}
             logo={logo}
@@ -197,7 +198,8 @@ Controls.propTypes = {
   duration: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   logo: PropTypes.string,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
+  backgroundControlColor: PropTypes.string
 }
 
 export { Controls }
