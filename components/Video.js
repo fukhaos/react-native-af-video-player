@@ -358,7 +358,8 @@ class Video extends Component {
       inlineOnly,
       playInBackground,
       playWhenInactive,
-      backgroundControlColor
+      backgroundControlColor,
+      seekLocked
     } = this.props
 
     const inline = {

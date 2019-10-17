@@ -128,7 +128,8 @@ class Controls extends Component {
       duration,
       theme,
       inlineOnly,
-      backgroundControlColor
+      backgroundControlColor,
+      seekLocked
     } = this.props
 
     const { center, ...controlBar } = theme
