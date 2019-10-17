@@ -428,6 +428,7 @@ class Video extends Component {
           theme={setTheme}
           inlineOnly={inlineOnly}
           backgroundControlColor={backgroundControlColor}
+          seekLocked={seekLocked}
         />
       </Animated.View>
     )
@@ -481,7 +482,8 @@ Video.propTypes = {
   resizeMode: PropTypes.string,
   retryText: PropTypes.string,
   retryColor: PropTypes.string,
-  backgroundControlColor: PropTypes.string
+  backgroundControlColor: PropTypes.string,
+  seekLocked: PropTypes.bool
 }
 
 Video.defaultProps = {
@@ -513,7 +515,8 @@ Video.defaultProps = {
   resizeMode: 'contain',
   retryText: 'Retry!',
   retryColor: 'white',
-  backgroundControlColor: 'rgba(0, 0, 0, 0.4)'
+  backgroundControlColor: 'rgba(0, 0, 0, 0.4)',
+  seekLocked: false
 }
 
 export default Video

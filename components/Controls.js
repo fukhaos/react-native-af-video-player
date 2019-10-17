@@ -165,6 +165,7 @@ class Controls extends Component {
             duration={duration}
             theme={controlBar}
             inlineOnly={inlineOnly}
+            seekLocked={seekLocked}
           />
         </Animated.View>
       </Touchable>
@@ -199,7 +200,8 @@ Controls.propTypes = {
   title: PropTypes.string.isRequired,
   logo: PropTypes.string,
   theme: PropTypes.object.isRequired,
-  backgroundControlColor: PropTypes.string
+  backgroundControlColor: PropTypes.string,
+  seekLocked: PropTypes.bool.isRequired
 }
 
 export { Controls }

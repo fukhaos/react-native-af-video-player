@@ -23,7 +23,8 @@ const ControlBar = (props) => {
     muted,
     fullscreen,
     theme,
-    inlineOnly
+    inlineOnly,
+    seekLocked
   } = props
 
   return (
@@ -34,6 +35,7 @@ const ControlBar = (props) => {
         onSeekRelease={pos => onSeekRelease(pos)}
         progress={progress}
         theme={{ scrubberThumb: theme.scrubberThumb, scrubberBar: theme.scrubberBar }}
+        seekLocked={seekLocked}
       />
       <ToggleIcon
         paddingLeft
@@ -69,7 +71,8 @@ ControlBar.propTypes = {
   progress: PropTypes.number.isRequired,
   currentTime: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
+  seekLocked: PropTypes.bool.isRequired
 }
 
 export { ControlBar }

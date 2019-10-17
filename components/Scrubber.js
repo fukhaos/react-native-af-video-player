@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 
 const Scrubber = (props) => {
   const trackColor = 'rgba(255,255,255,0.5)'
-  const { progress, theme, onSeek, onSeekRelease } = props
+  const { progress, theme, onSeek, onSeekRelease, seekLocked } = props
   return (
     <View style={styles.container}>
       { Platform.OS === 'ios' ?
@@ -41,6 +41,7 @@ const Scrubber = (props) => {
           minimumTrackTintColor={theme.scrubberBar}
           maximumTrackTintColor={trackColor}
           trackClickable
+          disabled={seekLocked}
         />
       :
         <RNSlider
@@ -61,7 +62,8 @@ Scrubber.propTypes = {
   onSeek: PropTypes.func.isRequired,
   onSeekRelease: PropTypes.func.isRequired,
   progress: PropTypes.number.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
+  seekLocked: PropTypes.bool.isRequired
 }
 
 export { Scrubber }
