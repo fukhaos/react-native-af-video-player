@@ -52,6 +52,7 @@ const Scrubber = (props) => {
           thumbTintColor={theme.scrubberThumb}
           minimumTrackTintColor={theme.scrubberBar}
           maximumTrackTintColor={trackColor}
+          disabled={seekLocked}
         />
       }
     </View>
