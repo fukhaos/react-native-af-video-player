@@ -93,12 +93,12 @@ class Video extends Component {
   onLoad(data) {
     if (!this.state.loading) return
     this.props.onLoad(data)
-    const { height, width } = data.naturalSize   
+    const { height, width } = data.naturalSize
     const ratio = height === 'undefined' && width === 'undefined' ?
       (9 / 16) : (height / width)
     const inlineHeight = this.props.lockRatio ?
-      (Win.width / this.props.lockRatio)
-      : (Win.width * ratio)
+      ((this.props.playerWidth || Win.width) / this.props.lockRatio)
+      : ((this.props.playerWidth || Win.width) * ratio)
     this.setState({
       paused: !this.props.autoPlay,
       loading: false,
@@ -484,7 +484,8 @@ Video.propTypes = {
   retryText: PropTypes.string,
   retryColor: PropTypes.string,
   backgroundControlColor: PropTypes.string,
-  seekLocked: PropTypes.bool
+  seekLocked: PropTypes.bool,
+  playerWidth: PropTypes.number
 }
 
 Video.defaultProps = {
@@ -517,7 +518,8 @@ Video.defaultProps = {
   retryText: 'Retry!',
   retryColor: 'white',
   backgroundControlColor: 'rgba(0, 0, 0, 0.4)',
-  seekLocked: false
+  seekLocked: false,
+  playerWidth: undefined,
 }
 
 export default Video
