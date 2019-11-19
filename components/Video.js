@@ -359,7 +359,7 @@ class Video extends Component {
       playInBackground,
       playWhenInactive,
       controlDuration,
-      hideFullScreenControl
+      hideFullScreenControl,
       backgroundControlColor,
       seekLocked
     } = this.props
