@@ -68,7 +68,7 @@ class Controls extends Component {
           break
         case this.state.hideControls:
           break
-        case this.state.seconds > 3:
+        case this.state.seconds > this.props.controlDuration:
           this.hideControls()
           break
         default:
@@ -128,6 +128,7 @@ class Controls extends Component {
       duration,
       theme,
       inlineOnly,
+      hideFullScreenControl,
       backgroundControlColor,
       seekLocked
     } = this.props
@@ -166,6 +167,7 @@ class Controls extends Component {
             duration={duration}
             theme={controlBar}
             inlineOnly={inlineOnly}
+            hideFullScreenControl={hideFullScreenControl}
             seekLocked={seekLocked}
           />
         </Animated.View>
@@ -191,6 +193,7 @@ Controls.propTypes = {
   onMorePress: PropTypes.func.isRequired,
   paused: PropTypes.bool.isRequired,
   inlineOnly: PropTypes.bool.isRequired,
+  hideFullScreenControl: PropTypes.bool.isRequired,
   fullscreen: PropTypes.bool.isRequired,
   muted: PropTypes.bool.isRequired,
   more: PropTypes.bool.isRequired,

@@ -358,6 +358,8 @@ class Video extends Component {
       inlineOnly,
       playInBackground,
       playWhenInactive,
+      controlDuration,
+      hideFullScreenControl
       backgroundControlColor,
       seekLocked
     } = this.props
@@ -428,6 +430,8 @@ class Video extends Component {
           onMorePress={() => onMorePress()}
           theme={setTheme}
           inlineOnly={inlineOnly}
+          controlDuration={controlDuration}
+          hideFullScreenControl={hideFullScreenControl}
           backgroundControlColor={backgroundControlColor}
           seekLocked={seekLocked}
         />
@@ -461,6 +465,7 @@ Video.propTypes = {
   loop: PropTypes.bool,
   autoPlay: PropTypes.bool,
   inlineOnly: PropTypes.bool,
+  hideFullScreenControl: PropTypes.bool,
   fullScreenOnly: PropTypes.bool,
   playInBackground: PropTypes.bool,
   playWhenInactive: PropTypes.bool,
@@ -481,6 +486,7 @@ Video.propTypes = {
   title: PropTypes.string,
   theme: PropTypes.object,
   resizeMode: PropTypes.string,
+  controlDuration: PropTypes.number,
   retryText: PropTypes.string,
   retryColor: PropTypes.string,
   backgroundControlColor: PropTypes.string,
@@ -515,6 +521,7 @@ Video.defaultProps = {
   title: '',
   theme: defaultTheme,
   resizeMode: 'contain',
+  controlDuration: 3,
   retryText: 'Retry!',
   retryColor: 'white',
   backgroundControlColor: 'rgba(0, 0, 0, 0.4)',
