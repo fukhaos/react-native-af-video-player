@@ -7,9 +7,9 @@
     "react-native-slider": "https://github.com/abbasfreestyle/react-native-slider.git"
   },
   "peerDependencies": {
-    "react-native-orientation-locker": "^1.1.6",
+    "react-native-orientation-locker": "^1.1.7",
     "react-native-vector-icons": "^6.6.0",
-    "react-native-video": "^4.4.4"
+    "react-native-video": "^5.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
