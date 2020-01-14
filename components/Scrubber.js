@@ -4,9 +4,9 @@ import {
   View,
   Platform,
   StyleSheet,
-  Slider as RNSlider
 } from 'react-native'
-import Slider from 'react-native-slider'
+import Slider from '@react-native-community/slider';
+const thumbImage = require('../assets/thumb-white-15x15.png');
 
 const styles = StyleSheet.create({
   container: {
@@ -35,16 +35,13 @@ const Scrubber = (props) => {
           onValueChange={val => onSeek(val)}
           onSlidingComplete={val => onSeekRelease(val)}
           value={progress === Number.POSITIVE_INFINITY ? 0 : progress}
-          thumbTintColor={theme.scrubberThumb}
-          thumbStyle={styles.thumbStyle}
-          trackStyle={styles.trackStyle}
+          thumbImage={thumbImage}
           minimumTrackTintColor={theme.scrubberBar}
           maximumTrackTintColor={trackColor}
-          trackClickable
           disabled={seekLocked}
         />
       :
-        <RNSlider
+        <Slider
           style={styles.slider}
           onValueChange={val => onSeek(val)}
           onSlidingComplete={val => onSeekRelease(val)}
