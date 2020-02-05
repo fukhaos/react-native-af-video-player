@@ -240,6 +240,11 @@ class Video extends Component {
     })
   }
 
+  pauseOutFS(){
+    this.toggleFS();
+    this.controls.showControls();
+  }
+
   toggleFS() {
     this.setState({ fullScreen: !this.state.fullScreen }, () => {
       Orientation.getOrientation((e, orientation) => {
@@ -413,7 +418,7 @@ class Video extends Component {
         />
         
          {this.controls && this.controls.state.hideControls && (
-          <View animation="fadeIn" useNativeDriver style={{position: "absolute", zIndex: 99, top: 0, bottom: 0, left: 0, right: 0}} >
+          <View animation="fadeIn" useNativeDriver style={{position: "absolute", zIndex: 102, top: 0, bottom: 0, left: 0, right: 0}} >
             {this.props.overlay({duration, currentTime})}
           </View>
         )}
