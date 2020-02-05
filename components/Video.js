@@ -16,6 +16,7 @@ import Orientation from 'react-native-orientation-locker'
 import Icons from 'react-native-vector-icons/MaterialIcons'
 import { Controls } from './'
 import { checkSource } from './utils'
+import { View } from 'react-native-animatable';
 const Win = Dimensions.get('window')
 const backgroundColor = '#000'
 
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 98
+    zIndex: 97
   },
   fullScreen: {
     ...StyleSheet.absoluteFillObject
@@ -410,7 +411,14 @@ class Video extends Component {
           // onBuffer={() => this.onBuffer()} // Callback when remote video is buffering
           onTimedMetadata={e => onTimedMetadata(e)} // Callback when the stream receive some metadata
         />
-        <Controls
+        
+         {this.controls && this.controls.state.hideControls && (
+          <View animation="fadeIn" useNativeDriver style={{position: "absolute", zIndex: 99, top: 0, bottom: 0, left: 0, right: 0}} >
+            {this.props.overlay({duration, currentTime})}
+          </View>
+        )}
+
+         <Controls
           ref={(ref) => { this.controls = ref }}
           toggleMute={() => this.toggleMute()}
           toggleFS={() => this.toggleFS()}
@@ -434,7 +442,7 @@ class Video extends Component {
           hideFullScreenControl={hideFullScreenControl}
           backgroundControlColor={backgroundControlColor}
           seekLocked={seekLocked}
-        />
+        />  
       </Animated.View>
     )
   }
@@ -491,7 +499,8 @@ Video.propTypes = {
   retryColor: PropTypes.string,
   backgroundControlColor: PropTypes.string,
   seekLocked: PropTypes.bool,
-  playerWidth: PropTypes.number
+  playerWidth: PropTypes.number,
+  overlay: PropTypes.any
 }
 
 Video.defaultProps = {
